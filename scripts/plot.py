@@ -54,13 +54,13 @@ XT = [str(c) for c in C]
 
 def save(fig, name):
     for ext in ("png", "svg"):
-        fig.savefig(os.path.join(OUT, f"{name}.{ext}"), bbox_inches="tight", facecolor="white")
+        fig.savefig(os.path.join(OUT, f"{name}.{ext}"), facecolor="white")
     plt.close(fig)
     print("wrote", name)
 
 # ---- fig1: batching trade-off (stacked panels) ----
 def fig1():
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 7), sharex=True)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 7), sharex=True, layout="constrained")
     ax1.plot(X, q_agg, "-o", color=QUANT, lw=2.5, ms=7, label="4-bit KV (8-wide)")
     ax1.plot(X, b_agg, "-o", color=BASE, lw=2.5, ms=7, label="fp16 KV (4-wide)")
     ax1.set_ylabel("Aggregate throughput (tok/s)")
@@ -82,7 +82,7 @@ def fig1():
 
 # ---- fig2: latency cliff (log bars) ----
 def fig2():
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(8, 5), layout="constrained")
     w = 0.38
     xb = [x - w/2 for x in X]; xq = [x + w/2 for x in X]
     ax.bar(xb, b_ttft, w, color=BASE, label="fp16 KV (4-wide)")
@@ -104,7 +104,7 @@ def fig2():
 
 # ---- fig3: efficiency causal chain (3 small multiples) ----
 def fig3():
-    fig, axes = plt.subplots(1, 3, figsize=(12, 4))
+    fig, axes = plt.subplots(1, 3, figsize=(12, 4.4), layout="constrained")
     series = [("Aggregate throughput\n(tok/s)", b_agg, q_agg, None),
               ("Combined power\n(W, GPU+CPU)", b_pwr, q_pwr, None),
               ("Energy efficiency\n(tokens / joule)", b_tpj, q_tpj, (0, 6))]
@@ -117,10 +117,10 @@ def fig3():
         if ylim: ax.set_ylim(*ylim)
     axes[0].legend(frameon=False, loc="lower right", fontsize=9)
     axes[2].axhspan(3.4, 5.1, color=ACC, alpha=0.07)
-    axes[2].text(0.5, 0.06, "flat", transform=axes[2].transAxes, color=ACC,
+    axes[2].text(0.5, 0.10, "flat", transform=axes[2].transAxes, color=ACC,
                  fontweight="bold", ha="center")
     fig.suptitle("Throughput ↑ and power ↑ rise together → efficiency is flat. "
-                 "Batch for throughput, not energy.", fontweight="bold", y=1.02)
+                 "Batch for throughput, not energy.", fontweight="bold")
     save(fig, "fig3_efficiency")
 
 # ---- fig4: prefill by prompt size ----
@@ -132,7 +132,7 @@ def fig4():
     ttft = [float(r["ttft_ms"]) for r in rows]
     tps  = [float(r["prompt_tps"]) for r in rows]
     labels = [f"{s}\n({t} tok)" for s, t in zip(sets, toks)]
-    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 4.2))
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(10, 4.2), layout="constrained")
     a1.bar(labels, ttft, color=QUANT)
     a1.set_ylabel("TTFT (ms)"); a1.set_title("Prefill latency by prompt size (single stream)")
     for i, v in enumerate(ttft):
@@ -141,34 +141,42 @@ def fig4():
     a2.set_ylabel("Prompt processing (tok/s)"); a2.set_title("Prefill throughput (amortizes with length)")
     for i, v in enumerate(tps):
         a2.text(i, v, f"{v:.0f}", ha="center", va="bottom", fontsize=9, fontweight="bold")
+    a1.set_ylim(0, max(ttft) * 1.15); a2.set_ylim(0, max(tps) * 1.15)  # headroom for value labels
     save(fig, "fig4_prefill")
 
-# ---- fig5: operating-point Pareto ----
+# ---- fig5: operating-point Pareto (decluttered) ----
 def fig5():
-    fig, ax = plt.subplots(figsize=(7.5, 5.5))
-    ax.plot(b_gen, b_agg, "-o", color=BASE, lw=1.5, ms=8, label="fp16 KV (4-wide)")
-    ax.plot(q_gen, q_agg, "-o", color=QUANT, lw=1.5, ms=8, label="4-bit KV (8-wide)")
-    for x, y, c in zip(b_gen, b_agg, C): ax.annotate(f"c{c}", (x, y), fontsize=8, color=BASE,
-                                                     xytext=(4, -10), textcoords="offset points")
-    for x, y, c in zip(q_gen, q_agg, C): ax.annotate(f"c{c}", (x, y), fontsize=8, color=QUANT,
-                                                     xytext=(4, 6), textcoords="offset points")
-    # operating point = quant conc 8
+    fig, ax = plt.subplots(figsize=(7.8, 5.6), layout="constrained")
+    ax.set_xlim(8, 39); ax.set_ylim(28, 94)          # fixed limits leave room for labels
+    ax.plot(b_gen, b_agg, "-o", color=BASE, lw=1.6, ms=8, label="fp16 KV (4-wide)", zorder=3)
+    ax.plot(q_gen, q_agg, "-o", color=QUANT, lw=1.6, ms=8, label="4-bit KV (8-wide)", zorder=3)
+    # endpoint labels only (every-point labels collided); curve direction shown in note
+    ax.annotate("c1", (b_gen[0], b_agg[0]), xytext=(6, -12), textcoords="offset points",
+                fontsize=9, color="#555")
+    ax.annotate("c16", (q_gen[-1], q_agg[-1]), xytext=(-4, 9), textcoords="offset points",
+                fontsize=9, color=QUANT, fontweight="bold")
+    ax.annotate("c16", (b_gen[-1], b_agg[-1]), xytext=(4, -14), textcoords="offset points",
+                fontsize=9, color=BASE, fontweight="bold")
+    # operating point = quant conc 8, label parked in the empty upper-right
     ix = C.index(8)
-    ax.scatter([q_gen[ix]], [q_agg[ix]], s=520, facecolors="none", edgecolors=ACC, lw=2.5, zorder=5)
+    ax.scatter([q_gen[ix]], [q_agg[ix]], s=560, facecolors="none", edgecolors=ACC, lw=2.5, zorder=4)
     ax.annotate("operating point\nconc 8 · ~14 tok/s/user · 86 tok/s",
-                (q_gen[ix], q_agg[ix]), xytext=(q_gen[ix]+3, q_agg[ix]-22),
-                color=ACC, fontweight="bold", fontsize=9,
-                arrowprops=dict(arrowstyle="->", color=ACC))
-    ax.axvline(10, color="#aaa", ls="--", lw=1)
-    ax.text(10.3, ax.get_ylim()[0]+3, "min interactive\n~10 tok/s/user", fontsize=8, color="#777")
+                xy=(q_gen[ix], q_agg[ix]), xytext=(22, 88),
+                color=ACC, fontweight="bold", fontsize=9, va="center",
+                arrowprops=dict(arrowstyle="->", color=ACC, lw=1.8))
+    ax.text(0.975, 0.40, "each curve runs concurrency 1 → 16\n(↑ concurrency: aggregate ↑, per-user ↓)",
+            transform=ax.transAxes, fontsize=8.5, color="#777", ha="right", style="italic")
+    ax.axvline(10, color="#bbb", ls="--", lw=1, zorder=1)
+    ax.text(10.4, 48, "min interactive ~10 tok/s/user", rotation=90, fontsize=8,
+            color="#999", va="bottom")
     ax.set_xlabel("Per-user speed (tok/s)"); ax.set_ylabel("Aggregate throughput (tok/s)")
     ax.set_title("Choosing the operating point")
-    ax.legend(frameon=False, loc="upper center")
+    ax.legend(frameon=False, loc="lower left")
     save(fig, "fig5_pareto")
 
 # ---- fig6: memory budget (why it OOM'd) ----
 def fig6():
-    fig, ax = plt.subplots(figsize=(7.5, 5))
+    fig, ax = plt.subplots(figsize=(7.5, 5), layout="constrained")
     # illustrative budget (GB): OS, model weights, KV+activations, MLX retained cache
     comps = ["OS", "Model (4-bit)", "KV + activations", "MLX buffer cache"]
     colors = ["#B0B0B0", "#7F7F86", "#56A0C0", "#0072B2"]
