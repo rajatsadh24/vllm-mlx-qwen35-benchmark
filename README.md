@@ -31,19 +31,23 @@ A self-contained benchmark of the 4-bit reasoning model `qwen35-optiq` served by
 
 Regenerate with `python3 scripts/plot.py data/final assets` (matplotlib, colorblind-safe; PNG + SVG).
 
+**Interactive dashboard** (hover for exact values, no static-label crowding):
+**[view live ↗](https://rajatsadh24.github.io/vllm-mlx-qwen35-benchmark/assets/dashboard.html)** — or open `assets/dashboard.html` locally. Regenerate with `python3 scripts/plot_interactive.py` (requires `plotly`).
+
 ## Layout
 
 ```
 benchmark_report/
 ├── README.md                     ← you are here
 ├── REPORT.md                     ← full report (start here)
-├── assets/                       ← generated figures (PNG + SVG)
+├── assets/                       ← generated figures (PNG + SVG) + dashboard.html
 ├── scripts/
 │   ├── run_bench.sh              ← prefill + decode envelope sweep (OOM-resilient)
 │   ├── run_power_kvquant.sh      ← two-arm decode + powermetrics sweep (baseline vs 4-bit KV)
 │   ├── power_summary.py          ← quick tok/J table (during-run look)
 │   ├── consolidate.py            ← authoritative final-CSV generator
-│   ├── plot.py                   ← figure generator (reads data/final → assets/)
+│   ├── plot.py                   ← static figure generator (matplotlib → assets/*.png/svg)
+│   ├── plot_interactive.py       ← interactive Plotly dashboard (→ assets/dashboard.html)
 │   └── PATCH_cache_limit.md      ← REQUIRED local patch (32 GB → 2 GB MLX cache)
 └── data/
     ├── final/                    ← clean summary CSVs (cite these)
