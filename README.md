@@ -19,17 +19,31 @@ A self-contained benchmark of the 4-bit reasoning model `qwen35-optiq` served by
 **Capacity claim:** ~**8 concurrent users @ ~14 tok/s each** within ~16–20 W.
 **Binding constraint:** memory, not compute. Prefill single-stream ~1300 tok/s; 1.9 s TTFT on a 2511-token prompt.
 
+## Figures
+
+![Composite infographic](assets/infographic.png)
+
+| | |
+|---|---|
+| ![Batching trade-off](assets/fig1_batching_tradeoff.png) | ![Latency cliff](assets/fig2_latency_cliff.png) |
+| ![Efficiency is flat](assets/fig3_efficiency.png) | ![Prefill by prompt size](assets/fig4_prefill.png) |
+| ![Operating point](assets/fig5_pareto.png) | ![Why it OOM'd](assets/fig6_memory.png) |
+
+Regenerate with `python3 scripts/plot.py data/final assets` (matplotlib, colorblind-safe; PNG + SVG).
+
 ## Layout
 
 ```
 benchmark_report/
 ├── README.md                     ← you are here
 ├── REPORT.md                     ← full report (start here)
+├── assets/                       ← generated figures (PNG + SVG)
 ├── scripts/
 │   ├── run_bench.sh              ← prefill + decode envelope sweep (OOM-resilient)
 │   ├── run_power_kvquant.sh      ← two-arm decode + powermetrics sweep (baseline vs 4-bit KV)
 │   ├── power_summary.py          ← quick tok/J table (during-run look)
 │   ├── consolidate.py            ← authoritative final-CSV generator
+│   ├── plot.py                   ← figure generator (reads data/final → assets/)
 │   └── PATCH_cache_limit.md      ← REQUIRED local patch (32 GB → 2 GB MLX cache)
 └── data/
     ├── final/                    ← clean summary CSVs (cite these)
