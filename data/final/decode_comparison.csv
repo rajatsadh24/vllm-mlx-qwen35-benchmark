@@ -1,0 +1,6 @@
+concurrency,base_gen_tps,base_agg_tps,base_ttft_ms,base_power_W,base_tok_per_J,base_status,quant_gen_tps,quant_agg_tps,quant_ttft_ms,quant_power_W,quant_tok_per_J,quant_status
+1,34.6,34.2,118.0,7.3,4.7,ok,35.3,34.8,117.0,7.0,5.01,ok
+2,29.9,44.7,273.0,12.7,3.52,ok,30.1,41.4,272.0,11.6,3.55,ok
+4,21.6,65.1,410.0,17.5,3.71,ok,24.6,71.4,387.0,19.6,3.64,ok
+8,21.6,66.9,16562.0,14.9,4.49,ok,14.5,85.7,577.0,19.3,4.45,ok
+16,20.7,78.5,48124.0,16.3,4.81,ok,12.9,81.2,28126.0,16.5,4.92,ok

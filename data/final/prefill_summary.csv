@@ -1,0 +1,22 @@
+prompt_set,concurrency,n_reps,prompt_tokens,ttft_ms,prompt_tps,note
+short,1,3,26,135.2,192.4,raw prefill
+short,2,3,26,250.9,116.7,raw prefill
+short,4,3,26,399.5,67.7,raw prefill
+short,8,3,26,617.5,48.2,queue-dominated (max-num-seqs cap)
+short,16,3,26,1031.9,33.2,queue-dominated (max-num-seqs cap)
+short,32,3,26,1847.5,21.6,queue-dominated (max-num-seqs cap)
+short,64,3,26,3517.1,13.2,queue-dominated (max-num-seqs cap)
+medium,1,3,599,508.3,1178.5,raw prefill
+medium,2,3,599,953.4,494.8,raw prefill
+medium,4,3,599,2867.3,191.8,raw prefill
+medium,8,3,599,4395.9,139.7,queue-dominated (max-num-seqs cap)
+medium,16,3,599,6955.6,100.3,queue-dominated (max-num-seqs cap)
+medium,32,3,599,12586.5,64.3,queue-dominated (max-num-seqs cap)
+medium,64,3,599,24177.8,39.4,queue-dominated (max-num-seqs cap)
+long,1,3,2511,1916.0,1310.6,raw prefill
+long,2,3,2511,5643.2,382.1,raw prefill
+long,4,3,2511,12058.6,153.6,raw prefill
+long,8,3,2511,13566.0,143.6,queue-dominated (max-num-seqs cap)
+long,16,3,2511,21774.1,102.2,queue-dominated (max-num-seqs cap)
+long,32,3,2511,42720.6,58.8,queue-dominated (max-num-seqs cap)
+long,64,3,2511,83020.6,37.1,queue-dominated (max-num-seqs cap)

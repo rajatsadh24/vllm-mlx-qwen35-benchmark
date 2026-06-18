@@ -1,0 +1,1974 @@
+INFO:vllm_mlx.utils.download:Model found at local path: models/qwen35-optiq
+INFO:vllm_mlx.server:Loading model with BatchedEngine: ./models/qwen35-optiq
+INFO:vllm_mlx.server:Model loaded (batched mode): ./models/qwen35-optiq
+INFO:vllm_mlx.server:Default max tokens: 2048
+INFO:vllm_mlx.server:Max request tokens: 2048
+INFO:     Started server process [61356]
+INFO:     Waiting for application startup.
+INFO:vllm_mlx.utils.tokenizer:Model ./models/qwen35-optiq detected as VLM, loading directly with strict=False
+INFO:vllm_mlx.utils.tokenizer:[strict=False] Loaded 924 parameters, 0 all-zero tensors
+INFO:vllm_mlx.utils.tokenizer:[strict=False] embed_tokens: shape=(248320, 640), dtype=mlx.core.uint32, mean=2368092160.0000
+WARNING:vllm_mlx.patches.qwen3_5_mtp:[MTP inject] MTP weights not found in models/qwen35-optiq
+INFO:vllm_mlx.engine.batched:Metal memory limits set: allocation_limit=8.9GB (70% of 12.7GB), cache_limit=2.0GB
+INFO:vllm_mlx.engine_core:Engine started
+INFO:vllm_mlx.engine.batched:BatchedEngine loaded: ./models/qwen35-optiq (mllm=False)
+INFO:vllm_mlx.server:[_get_cache_dir] _model_path='./models/qwen35-optiq' type=<class 'str'>
+INFO:vllm_mlx.server:[_get_cache_dir] cache_dir='/Users/user/.cache/vllm-mlx/prefix_cache/.--models--qwen35-optiq'
+INFO:vllm_mlx.server:[lifespan] Loading prefix cache from /Users/user/.cache/vllm-mlx/prefix_cache/.--models--qwen35-optiq
+INFO:vllm_mlx.scheduler:[cache_persist] no memory-aware cache to load into
+INFO:vllm_mlx.server:[lifespan] No prefix cache entries found on disk
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+============================================================
+SECURITY CONFIGURATION
+============================================================
+  Authentication: DISABLED - Use --api-key to enable
+  Rate limiting: DISABLED - Use --rate-limit to enable
+  Request timeout: 300.0s
+  Metrics: ENABLED (/metrics, unauthenticated)
+  Remote code loading: DISABLED (default)
+  Idle auto-unload: DISABLED
+  Tool calling: Use --enable-auto-tool-choice to enable
+  Reasoning: Use --reasoning-parser to enable
+  Audio upload limit: 25 MiB, TTS input limit: 4096 chars
+============================================================
+Loading model: ./models/qwen35-optiq
+Default max tokens: 2048
+Max request tokens: 2048
+Mode: Continuous batching (for multiple concurrent users)
+Chunked prefill: 512 tokens per step
+Stream interval: 1 tokens
+Paged cache: block_size=64, max_blocks=512
+Starting server at http://127.0.0.1:8000
+INFO:     127.0.0.1:55348 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55354 - "GET /health HTTP/1.1" 200 OK
+WARNING:vllm_mlx.server:SECURITY WARNING: Server running without API key authentication. Anyone can access the API. Use --api-key to enable authentication.
+INFO:     127.0.0.1:55354 - "GET /v1/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55354 - "GET /v1/status HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=False model='qwen35-optiq' max_tokens=1 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+WARNING:vllm_mlx.scheduler:Chunked prefill disabled: mlx-lm BatchGenerator lacks required internals (_process_prompts, active_batch). Upgrade mlx-lm or check compatibility.
+INFO:vllm_mlx.scheduler:[schedule] request=57dde595-2ec uid=0 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1 running=1 waiting=0
+INFO:vllm_mlx.server:Chat completion: 1 tokens in 0.64s (1.6 tok/s)
+INFO:     127.0.0.1:55354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:55354 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 19de0862-6a7 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=19de0862-6a7 uid=1 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=1 waiting=0
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:55368 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:     127.0.0.1:55371 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] c1f246a2-089 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 34a44fc1-e70 START waiting for tokens
+INFO:     127.0.0.1:55372 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55373 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55374 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55375 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:55377 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55378 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55379 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55380 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55381 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55382 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55383 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55384 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] bdecbd22-2b1 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 0ffe2354-130 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 8eda3beb-2c9 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] b52eda25-e82 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 3319da33-061 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 9685b8b0-66a START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 66063ea6-252 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 1cacbcf9-d74 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] afaee0d8-e42 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 785ee2ab-186 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 64987322-193 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 9f6c0497-070 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] b96fb901-359 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=c1f246a2-089 uid=2 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=2 waiting=14
+INFO:vllm_mlx.scheduler:[schedule] request=34a44fc1-e70 uid=3 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=3 waiting=13
+INFO:vllm_mlx.scheduler:[schedule] request=bdecbd22-2b1 uid=4 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=4 waiting=12
+INFO:vllm_mlx.scheduler:[schedule] request=0ffe2354-130 uid=5 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=5 waiting=11
+INFO:vllm_mlx.scheduler:[schedule] request=8eda3beb-2c9 uid=6 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=6 waiting=10
+INFO:vllm_mlx.scheduler:[schedule] request=b52eda25-e82 uid=7 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=7 waiting=9
+INFO:vllm_mlx.scheduler:[schedule] request=3319da33-061 uid=8 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=8
+INFO:vllm_mlx.engine_core:[stream_outputs] 19de0862-6a7 first token after 0.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] c1f246a2-089 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 34a44fc1-e70 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] bdecbd22-2b1 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 0ffe2354-130 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 8eda3beb-2c9 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] b52eda25-e82 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 3319da33-061 first token after 0.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.4GB peak=4.8GB cache=0.0GB step=256 running=8 waiting=8
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] c1f246a2-089 finished normally, 300 tokens in 26.6s
+INFO:vllm_mlx.scheduler:[schedule] request=9685b8b0-66a uid=9 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=7
+INFO:vllm_mlx.engine_core:[stream_outputs] c1f246a2-089 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 300 tokens in 26.57s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 303 chunks, elapsed=26.6s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 303 chunks, 0 heartbeats, elapsed=26.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9685b8b0-66a first token after 27.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 34a44fc1-e70 finished normally, 353 tokens in 31.3s
+INFO:vllm_mlx.scheduler:[schedule] request=66063ea6-252 uid=10 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=6
+INFO:vllm_mlx.engine_core:[stream_outputs] 34a44fc1-e70 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 353 tokens in 31.34s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 356 chunks, elapsed=31.3s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 356 chunks, 0 heartbeats, elapsed=31.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] 66063ea6-252 first token after 31.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] bdecbd22-2b1 finished normally, 358 tokens in 31.9s
+INFO:vllm_mlx.scheduler:[schedule] request=1cacbcf9-d74 uid=11 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=5
+INFO:vllm_mlx.engine_core:[stream_outputs] bdecbd22-2b1 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 358 tokens in 31.90s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 361 chunks, elapsed=31.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 361 chunks, 0 heartbeats, elapsed=31.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1cacbcf9-d74 first token after 32.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 19de0862-6a7 finished normally, 434 tokens in 38.6s
+INFO:vllm_mlx.scheduler:[schedule] request=afaee0d8-e42 uid=12 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=4
+INFO:vllm_mlx.engine_core:[stream_outputs] 19de0862-6a7 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 434 tokens in 38.60s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 437 chunks, elapsed=38.6s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 437 chunks, 0 heartbeats, elapsed=38.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] afaee0d8-e42 first token after 39.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.5GB peak=4.8GB cache=0.0GB step=512 running=8 waiting=4
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] b52eda25-e82 finished normally, 675 tokens in 59.9s
+INFO:vllm_mlx.scheduler:[schedule] request=785ee2ab-186 uid=13 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] b52eda25-e82 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 675 tokens in 59.93s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 678 chunks, elapsed=59.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 678 chunks, 0 heartbeats, elapsed=59.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 785ee2ab-186 first token after 60.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.6GB peak=4.8GB cache=0.0GB step=768 running=8 waiting=3
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.8GB peak=4.9GB cache=0.0GB step=1024 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] 0ffe2354-130 finished normally, 1024 tokens in 91.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 8eda3beb-2c9 finished normally, 1024 tokens in 91.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 3319da33-061 finished normally, 1024 tokens in 91.0s
+INFO:vllm_mlx.scheduler:[schedule] request=64987322-193 uid=14 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=6 waiting=2
+INFO:vllm_mlx.scheduler:[schedule] request=9f6c0497-070 uid=15 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=7 waiting=1
+INFO:vllm_mlx.scheduler:[schedule] request=b96fb901-359 uid=16 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=8 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] 0ffe2354-130 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 90.98s (11.3 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] 8eda3beb-2c9 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 90.98s (11.3 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] 3319da33-061 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 90.98s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=91.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=91.0s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=91.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=91.0s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=91.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=91.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 64987322-193 first token after 91.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9f6c0497-070 first token after 91.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] b96fb901-359 first token after 91.4s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9685b8b0-66a finished normally, 805 tokens in 98.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9685b8b0-66a cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 805 tokens in 98.50s (8.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 808 chunks, elapsed=98.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 808 chunks, 5 heartbeats, elapsed=98.5s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 64987322-193 finished normally, 165 tokens in 105.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 64987322-193 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 165 tokens in 105.09s (1.6 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 168 chunks, elapsed=105.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 168 chunks, 18 heartbeats, elapsed=105.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.4GB peak=4.9GB cache=0.0GB step=1280 running=6 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] afaee0d8-e42 finished normally, 847 tokens in 111.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] afaee0d8-e42 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 847 tokens in 111.35s (7.6 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 850 chunks, elapsed=111.4s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 850 chunks, 7 heartbeats, elapsed=111.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] b96fb901-359 finished normally, 290 tokens in 113.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] b96fb901-359 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 290 tokens in 113.39s (2.6 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 293 chunks, elapsed=113.4s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 293 chunks, 18 heartbeats, elapsed=113.4s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 66063ea6-252 finished normally, 1024 tokens in 116.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 66063ea6-252 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 116.52s (8.8 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=116.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 6 heartbeats, elapsed=116.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1cacbcf9-d74 finished normally, 1024 tokens in 116.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1cacbcf9-d74 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 116.74s (8.8 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=116.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 6 heartbeats, elapsed=116.7s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=1536 running=1 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] 9f6c0497-070 finished normally, 504 tokens in 121.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9f6c0497-070 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 504 tokens in 121.87s (4.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 507 chunks, elapsed=121.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 507 chunks, 18 heartbeats, elapsed=121.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 785ee2ab-186 finished normally, 1024 tokens in 127.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] 785ee2ab-186 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 127.67s (8.0 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=127.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 12 heartbeats, elapsed=127.7s
+INFO:     127.0.0.1:55381 - "GET /metrics HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:55381 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] fca9d6ea-660 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=fca9d6ea-660 uid=17 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=1 waiting=0
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:     127.0.0.1:55527 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55538 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55539 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:     127.0.0.1:55540 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.engine_core:[stream_outputs] d2a67076-a0e START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1dcdeb22-c5a START waiting for tokens
+INFO:     127.0.0.1:55541 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55542 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.engine_core:[stream_outputs] 43a23f90-ab6 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55543 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.engine_core:[stream_outputs] 5166f1ff-f1b START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55544 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.engine_core:[stream_outputs] ae9859df-5ff START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55545 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.engine_core:[stream_outputs] 1436da05-a4a START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55546 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 4dcc21ac-de1 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55547 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 52d81430-a53 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55548 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9ae65337-cdb START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55549 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] a7438014-f6d START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55550 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] eddf4fcd-c1c START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:55551 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.engine_core:[stream_outputs] 945e1d6d-a08 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] b6fb1105-3e2 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 78a2360a-756 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] efe4350b-fef START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=d2a67076-a0e uid=18 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=2 waiting=14
+INFO:vllm_mlx.scheduler:[schedule] request=1dcdeb22-c5a uid=19 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=3 waiting=13
+INFO:vllm_mlx.scheduler:[schedule] request=43a23f90-ab6 uid=20 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=4 waiting=12
+INFO:vllm_mlx.scheduler:[schedule] request=5166f1ff-f1b uid=21 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=5 waiting=11
+INFO:vllm_mlx.scheduler:[schedule] request=ae9859df-5ff uid=22 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=6 waiting=10
+INFO:vllm_mlx.scheduler:[schedule] request=1436da05-a4a uid=23 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=7 waiting=9
+INFO:vllm_mlx.scheduler:[schedule] request=4dcc21ac-de1 uid=24 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=8
+INFO:vllm_mlx.engine_core:[stream_outputs] fca9d6ea-660 first token after 0.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] d2a67076-a0e first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1dcdeb22-c5a first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 43a23f90-ab6 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5166f1ff-f1b first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] ae9859df-5ff first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1436da05-a4a first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 4dcc21ac-de1 first token after 0.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.3GB peak=4.9GB cache=0.0GB step=1792 running=8 waiting=8
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5166f1ff-f1b finished normally, 201 tokens in 17.5s
+INFO:vllm_mlx.scheduler:[schedule] request=52d81430-a53 uid=25 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=7
+INFO:vllm_mlx.engine_core:[stream_outputs] 5166f1ff-f1b cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 201 tokens in 17.49s (11.5 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 204 chunks, elapsed=17.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 204 chunks, 0 heartbeats, elapsed=17.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 52d81430-a53 first token after 17.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] d2a67076-a0e finished normally, 300 tokens in 26.2s
+INFO:vllm_mlx.scheduler:[schedule] request=9ae65337-cdb uid=26 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=6
+INFO:vllm_mlx.engine_core:[stream_outputs] d2a67076-a0e cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 300 tokens in 26.24s (11.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 303 chunks, elapsed=26.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 303 chunks, 0 heartbeats, elapsed=26.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9ae65337-cdb first token after 26.6s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.4GB peak=4.9GB cache=0.0GB step=2048 running=8 waiting=6
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1dcdeb22-c5a finished normally, 355 tokens in 31.2s
+INFO:vllm_mlx.scheduler:[schedule] request=a7438014-f6d uid=27 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=8 waiting=5
+INFO:vllm_mlx.engine_core:[stream_outputs] 1dcdeb22-c5a cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 355 tokens in 31.17s (11.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 358 chunks, elapsed=31.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 358 chunks, 0 heartbeats, elapsed=31.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] a7438014-f6d first token after 31.5s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] fca9d6ea-660 finished normally, 434 tokens in 38.2s
+INFO:vllm_mlx.scheduler:[schedule] request=eddf4fcd-c1c uid=28 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=4
+INFO:vllm_mlx.engine_core:[stream_outputs] fca9d6ea-660 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 434 tokens in 38.15s (11.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 437 chunks, elapsed=38.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 437 chunks, 0 heartbeats, elapsed=38.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] eddf4fcd-c1c first token after 38.5s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1436da05-a4a finished normally, 538 tokens in 47.5s
+INFO:vllm_mlx.scheduler:[schedule] request=945e1d6d-a08 uid=29 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] 1436da05-a4a cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 538 tokens in 47.50s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 541 chunks, elapsed=47.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 541 chunks, 0 heartbeats, elapsed=47.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 945e1d6d-a08 first token after 47.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] a7438014-f6d finished normally, 228 tokens in 51.8s
+INFO:vllm_mlx.scheduler:[schedule] request=b6fb1105-3e2 uid=30 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=2
+INFO:vllm_mlx.engine_core:[stream_outputs] a7438014-f6d cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 228 tokens in 51.76s (4.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 231 chunks, elapsed=51.8s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 231 chunks, 6 heartbeats, elapsed=51.8s
+INFO:vllm_mlx.engine_core:[stream_outputs] b6fb1105-3e2 first token after 52.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.5GB peak=4.9GB cache=0.0GB step=2304 running=8 waiting=2
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 4dcc21ac-de1 finished normally, 750 tokens in 66.7s
+INFO:vllm_mlx.scheduler:[schedule] request=78a2360a-756 uid=31 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=1
+INFO:vllm_mlx.engine_core:[stream_outputs] 4dcc21ac-de1 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 750 tokens in 66.69s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 753 chunks, elapsed=66.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 753 chunks, 0 heartbeats, elapsed=66.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] 78a2360a-756 first token after 67.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.6GB peak=4.9GB cache=0.0GB step=2560 running=8 waiting=1
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] ae9859df-5ff finished normally, 940 tokens in 83.7s
+INFO:vllm_mlx.scheduler:[schedule] request=efe4350b-fef uid=32 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] ae9859df-5ff cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 940 tokens in 83.74s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 943 chunks, elapsed=83.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 943 chunks, 0 heartbeats, elapsed=83.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] efe4350b-fef first token after 84.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9ae65337-cdb finished normally, 685 tokens in 88.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9ae65337-cdb cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 685 tokens in 88.09s (7.8 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 688 chunks, elapsed=88.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 688 chunks, 5 heartbeats, elapsed=88.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 43a23f90-ab6 finished normally, 1024 tokens in 91.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 43a23f90-ab6 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 91.07s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=91.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=91.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 945e1d6d-a08 finished normally, 491 tokens in 91.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 945e1d6d-a08 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 491 tokens in 91.58s (5.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 494 chunks, elapsed=91.6s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 494 chunks, 9 heartbeats, elapsed=91.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.2GB peak=4.9GB cache=0.0GB step=2816 running=5 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 52d81430-a53 finished normally, 1024 tokens in 103.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 52d81430-a53 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 103.25s (9.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=103.3s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 3 heartbeats, elapsed=103.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.1GB peak=4.9GB cache=0.0GB step=3072 running=4 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] eddf4fcd-c1c finished normally, 1024 tokens in 114.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] eddf4fcd-c1c cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 114.86s (8.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=114.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 7 heartbeats, elapsed=114.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] b6fb1105-3e2 finished normally, 1024 tokens in 121.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] b6fb1105-3e2 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 121.11s (8.5 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=121.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 10 heartbeats, elapsed=121.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.8GB peak=4.9GB cache=0.0GB step=3328 running=2 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 78a2360a-756 finished normally, 1024 tokens in 126.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 78a2360a-756 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 126.95s (8.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=127.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 13 heartbeats, elapsed=127.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=3584 running=1 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #260 disconnected=False elapsed=130.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] efe4350b-fef finished normally, 1024 tokens in 133.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] efe4350b-fef cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 133.40s (7.7 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=133.4s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 16 heartbeats, elapsed=133.4s
+INFO:     127.0.0.1:55551 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55551 - "GET /v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55551 - "GET /metrics HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:55551 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1367c1bd-c10 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=1367c1bd-c10 uid=33 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=1 waiting=0
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:     127.0.0.1:56390 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:     127.0.0.1:56391 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56392 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56393 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.engine_core:[stream_outputs] 1da86761-540 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56394 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.engine_core:[stream_outputs] 81b0e0c3-2e9 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56395 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.engine_core:[stream_outputs] 84bdf51a-df2 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56396 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.engine_core:[stream_outputs] 398b1aa8-9ab START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56397 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.engine_core:[stream_outputs] 038044ac-784 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56398 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.engine_core:[stream_outputs] b4589228-e9b START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56399 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 06aeef73-fce START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56400 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 679702ff-073 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56401 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 65a89a62-a3f START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56402 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 711c7c3c-83f START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56403 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 24c8dd7c-487 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56404 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.engine_core:[stream_outputs] 9c82224b-869 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] ac5d587a-55b START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] ed230e7c-21b START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] d0ed6206-29e START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=1da86761-540 uid=34 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=2 waiting=14
+INFO:vllm_mlx.scheduler:[schedule] request=81b0e0c3-2e9 uid=35 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=3 waiting=13
+INFO:vllm_mlx.scheduler:[schedule] request=84bdf51a-df2 uid=36 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=4 waiting=12
+INFO:vllm_mlx.scheduler:[schedule] request=398b1aa8-9ab uid=37 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=5 waiting=11
+INFO:vllm_mlx.scheduler:[schedule] request=038044ac-784 uid=38 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=6 waiting=10
+INFO:vllm_mlx.scheduler:[schedule] request=b4589228-e9b uid=39 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=7 waiting=9
+INFO:vllm_mlx.scheduler:[schedule] request=06aeef73-fce uid=40 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=8 waiting=8
+INFO:vllm_mlx.engine_core:[stream_outputs] 1367c1bd-c10 first token after 0.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1da86761-540 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 81b0e0c3-2e9 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 84bdf51a-df2 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 398b1aa8-9ab first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 038044ac-784 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] b4589228-e9b first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 06aeef73-fce first token after 0.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.3GB peak=4.9GB cache=0.0GB step=3840 running=8 waiting=8
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 06aeef73-fce finished normally, 263 tokens in 23.4s
+INFO:vllm_mlx.scheduler:[schedule] request=679702ff-073 uid=41 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=7
+INFO:vllm_mlx.engine_core:[stream_outputs] 06aeef73-fce cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 263 tokens in 23.37s (11.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 266 chunks, elapsed=23.4s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 266 chunks, 0 heartbeats, elapsed=23.4s
+INFO:vllm_mlx.engine_core:[stream_outputs] 679702ff-073 first token after 23.7s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 1da86761-540 finished normally, 300 tokens in 26.8s
+INFO:vllm_mlx.scheduler:[schedule] request=65a89a62-a3f uid=42 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=6
+INFO:vllm_mlx.engine_core:[stream_outputs] 1da86761-540 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 300 tokens in 26.79s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 303 chunks, elapsed=26.8s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 303 chunks, 0 heartbeats, elapsed=26.8s
+INFO:vllm_mlx.engine_core:[stream_outputs] 65a89a62-a3f first token after 27.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 81b0e0c3-2e9 finished normally, 353 tokens in 31.6s
+INFO:vllm_mlx.scheduler:[schedule] request=711c7c3c-83f uid=43 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=5
+INFO:vllm_mlx.engine_core:[stream_outputs] 81b0e0c3-2e9 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 353 tokens in 31.63s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 356 chunks, elapsed=31.6s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 356 chunks, 0 heartbeats, elapsed=31.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 711c7c3c-83f first token after 32.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.4GB peak=4.9GB cache=0.0GB step=4096 running=8 waiting=5
+INFO:vllm_mlx.engine_core:[stream_outputs] 1367c1bd-c10 finished normally, 434 tokens in 38.9s
+INFO:vllm_mlx.scheduler:[schedule] request=24c8dd7c-487 uid=44 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=4
+INFO:vllm_mlx.engine_core:[stream_outputs] 1367c1bd-c10 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 434 tokens in 38.90s (11.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 437 chunks, elapsed=38.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 437 chunks, 0 heartbeats, elapsed=38.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 24c8dd7c-487 first token after 39.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.5GB peak=4.9GB cache=0.0GB step=4352 running=8 waiting=4
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 24c8dd7c-487 finished normally, 493 tokens in 83.8s
+INFO:vllm_mlx.scheduler:[schedule] request=9c82224b-869 uid=45 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] 24c8dd7c-487 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 493 tokens in 83.79s (5.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 496 chunks, elapsed=83.8s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 496 chunks, 7 heartbeats, elapsed=83.8s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.2GB peak=4.9GB cache=0.0GB step=4608 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] 9c82224b-869 first token after 84.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 84bdf51a-df2 finished normally, 1024 tokens in 92.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] 398b1aa8-9ab finished normally, 1024 tokens in 92.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] 038044ac-784 finished normally, 1024 tokens in 92.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] b4589228-e9b finished normally, 1024 tokens in 92.7s
+INFO:vllm_mlx.scheduler:[schedule] request=ac5d587a-55b uid=46 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=5 waiting=2
+INFO:vllm_mlx.scheduler:[schedule] request=ed230e7c-21b uid=47 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=6 waiting=1
+INFO:vllm_mlx.engine_core:[stream_outputs] 84bdf51a-df2 cleanup done
+INFO:vllm_mlx.scheduler:[schedule] request=d0ed6206-29e uid=48 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=7 waiting=0
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 92.73s (11.0 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] 398b1aa8-9ab cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 92.74s (11.0 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] 038044ac-784 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 92.73s (11.0 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] b4589228-e9b cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 92.73s (11.0 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=92.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=92.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] ac5d587a-55b first token after 93.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] ed230e7c-21b first token after 93.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] d0ed6206-29e first token after 93.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 679702ff-073 finished normally, 813 tokens in 97.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 679702ff-073 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 813 tokens in 97.24s (8.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 816 chunks, elapsed=97.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 816 chunks, 4 heartbeats, elapsed=97.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 65a89a62-a3f finished normally, 813 tokens in 100.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 65a89a62-a3f cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 813 tokens in 100.04s (8.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 816 chunks, elapsed=100.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 816 chunks, 5 heartbeats, elapsed=100.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.2GB peak=4.9GB cache=0.0GB step=4864 running=5 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] ac5d587a-55b finished normally, 254 tokens in 110.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] ac5d587a-55b cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 254 tokens in 109.99s (2.3 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 257 chunks, elapsed=110.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 257 chunks, 18 heartbeats, elapsed=110.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 711c7c3c-83f finished normally, 1024 tokens in 115.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 711c7c3c-83f cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 115.00s (8.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=115.0s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 6 heartbeats, elapsed=115.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.8GB peak=4.9GB cache=0.0GB step=5120 running=3 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] d0ed6206-29e finished normally, 435 tokens in 118.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] d0ed6206-29e cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 435 tokens in 118.35s (3.7 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 438 chunks, elapsed=118.4s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 438 chunks, 18 heartbeats, elapsed=118.4s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.3s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] ed230e7c-21b finished normally, 654 tokens in 126.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] ed230e7c-21b cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 654 tokens in 126.06s (5.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 657 chunks, elapsed=126.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 657 chunks, 18 heartbeats, elapsed=126.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=5376 running=1 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #260 disconnected=False elapsed=130.3s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=5632 running=1 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #270 disconnected=False elapsed=135.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9c82224b-869 finished normally, 1024 tokens in 135.3s
+INFO:vllm_mlx.engine_core:[stream_outputs] 9c82224b-869 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 135.32s (7.6 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=135.3s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 16 heartbeats, elapsed=135.3s
+INFO:     127.0.0.1:56401 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56401 - "GET /v1/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56401 - "GET /metrics HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:56401 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] c73b54e1-697 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=c73b54e1-697 uid=49 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=1 waiting=0
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:     127.0.0.1:56561 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56568 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56569 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56570 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=84 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Write a Python function that checks if a string is a palindrome. Include type hints.
+INFO:     127.0.0.1:56571 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.engine_core:[stream_outputs] 688040c2-a1b START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=80 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Explain the difference between a stack and a queue data structure with examples.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=66 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What causes tides on Earth? Describe the role of the Moon and Sun.
+INFO:vllm_mlx.engine_core:[stream_outputs] c33196e3-915 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 18b07d83-5b6 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 2c3eb913-dc9 START waiting for tokens
+INFO:     127.0.0.1:56576 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56577 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56578 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: Compare and contrast TCP and UDP protocols. When would you use each?
+INFO:vllm_mlx.engine_core:[stream_outputs] bff7d4e6-515 START waiting for tokens
+INFO:     127.0.0.1:56579 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[REQUEST] POST /v1/chat/completions stream=True model='qwen35-optiq' max_tokens=1024 temp=None top_p=None top_k=None min_p=None presence_penalty=None repetition_penalty=None msgs=1 roles=['user'] total_chars=68 tools=0 response_format=None
+INFO:vllm_mlx.server:[REQUEST] last user message preview: What are the three laws of thermodynamics? Explain each one briefly.
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56580 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56581 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] a0b9fa81-599 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 5db904e9-23c START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] facb1fa4-f4f START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56582 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] d2327cd8-ff1 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56583 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5e47ae15-d91 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56584 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.server:[disconnect_guard] START poll=0.5s heartbeat=5.0s timeout=300s
+INFO:vllm_mlx.engine_core:[stream_outputs] d71bacdf-c74 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:     127.0.0.1:56585 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+INFO:vllm_mlx.engine_core:[stream_outputs] ab02acad-b1c START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 60466454-b40 START waiting for tokens
+INFO:vllm_mlx.server:[disconnect_guard] first chunk arrived, elapsed=0.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] b3360818-068 START waiting for tokens
+INFO:vllm_mlx.engine_core:[stream_outputs] 7037f181-c20 START waiting for tokens
+INFO:vllm_mlx.scheduler:[schedule] request=688040c2-a1b uid=50 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=2 waiting=14
+INFO:vllm_mlx.scheduler:[schedule] request=c33196e3-915 uid=51 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=3 waiting=13
+INFO:vllm_mlx.scheduler:[schedule] request=18b07d83-5b6 uid=52 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=4 waiting=12
+INFO:vllm_mlx.scheduler:[schedule] request=2c3eb913-dc9 uid=53 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=5 waiting=11
+INFO:vllm_mlx.scheduler:[schedule] request=bff7d4e6-515 uid=54 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=6 waiting=10
+INFO:vllm_mlx.scheduler:[schedule] request=a0b9fa81-599 uid=55 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=7 waiting=9
+INFO:vllm_mlx.scheduler:[schedule] request=5db904e9-23c uid=56 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=8
+INFO:vllm_mlx.engine_core:[stream_outputs] c73b54e1-697 first token after 0.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 688040c2-a1b first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] c33196e3-915 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 18b07d83-5b6 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 2c3eb913-dc9 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] bff7d4e6-515 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] a0b9fa81-599 first token after 0.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5db904e9-23c first token after 0.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #10 disconnected=False elapsed=5.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #20 disconnected=False elapsed=10.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #30 disconnected=False elapsed=15.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #40 disconnected=False elapsed=20.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.4GB peak=4.9GB cache=0.0GB step=5888 running=8 waiting=8
+INFO:vllm_mlx.engine_core:[stream_outputs] c33196e3-915 finished normally, 257 tokens in 23.1s
+INFO:vllm_mlx.scheduler:[schedule] request=facb1fa4-f4f uid=57 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=7
+INFO:vllm_mlx.engine_core:[stream_outputs] c33196e3-915 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 257 tokens in 23.06s (11.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 260 chunks, elapsed=23.1s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 260 chunks, 0 heartbeats, elapsed=23.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] facb1fa4-f4f first token after 23.4s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #50 disconnected=False elapsed=25.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #60 disconnected=False elapsed=30.0s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #70 disconnected=False elapsed=35.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 688040c2-a1b finished normally, 428 tokens in 38.6s
+INFO:vllm_mlx.scheduler:[schedule] request=d2327cd8-ff1 uid=58 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=8 waiting=6
+INFO:vllm_mlx.engine_core:[stream_outputs] 688040c2-a1b cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 428 tokens in 38.62s (11.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 431 chunks, elapsed=38.6s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 431 chunks, 0 heartbeats, elapsed=38.6s
+INFO:vllm_mlx.engine_core:[stream_outputs] d2327cd8-ff1 first token after 39.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] c73b54e1-697 finished normally, 434 tokens in 39.2s
+INFO:vllm_mlx.scheduler:[schedule] request=5e47ae15-d91 uid=59 prompt_tokens=29 tokens_to_prefill=29 max_tokens=1024 running=8 waiting=5
+INFO:vllm_mlx.engine_core:[stream_outputs] c73b54e1-697 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 434 tokens in 39.20s (11.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 437 chunks, elapsed=39.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 437 chunks, 0 heartbeats, elapsed=39.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5e47ae15-d91 first token after 39.6s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #80 disconnected=False elapsed=40.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #90 disconnected=False elapsed=45.1s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.5GB peak=4.9GB cache=0.0GB step=6144 running=8 waiting=5
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #100 disconnected=False elapsed=50.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #110 disconnected=False elapsed=55.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #120 disconnected=False elapsed=60.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] d2327cd8-ff1 finished normally, 236 tokens in 60.5s
+INFO:vllm_mlx.scheduler:[schedule] request=d71bacdf-c74 uid=60 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=4
+INFO:vllm_mlx.engine_core:[stream_outputs] d2327cd8-ff1 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 236 tokens in 60.49s (3.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 239 chunks, elapsed=60.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 239 chunks, 7 heartbeats, elapsed=60.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] d71bacdf-c74 first token after 60.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5e47ae15-d91 finished normally, 266 tokens in 63.8s
+INFO:vllm_mlx.scheduler:[schedule] request=ab02acad-b1c uid=61 prompt_tokens=27 tokens_to_prefill=27 max_tokens=1024 running=8 waiting=3
+INFO:vllm_mlx.engine_core:[stream_outputs] 5e47ae15-d91 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 266 tokens in 63.83s (4.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 269 chunks, elapsed=63.8s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 269 chunks, 7 heartbeats, elapsed=63.8s
+INFO:vllm_mlx.engine_core:[stream_outputs] ab02acad-b1c first token after 64.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #130 disconnected=False elapsed=65.1s
+INFO:vllm_mlx.engine_core:[stream_outputs] 2c3eb913-dc9 finished normally, 751 tokens in 68.5s
+INFO:vllm_mlx.scheduler:[schedule] request=60466454-b40 uid=62 prompt_tokens=28 tokens_to_prefill=28 max_tokens=1024 running=8 waiting=2
+INFO:vllm_mlx.engine_core:[stream_outputs] 2c3eb913-dc9 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 751 tokens in 68.55s (11.0 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 754 chunks, elapsed=68.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 754 chunks, 0 heartbeats, elapsed=68.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 60466454-b40 first token after 69.0s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.6GB peak=4.9GB cache=0.0GB step=6400 running=8 waiting=2
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #140 disconnected=False elapsed=70.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #150 disconnected=False elapsed=75.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #160 disconnected=False elapsed=80.1s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #170 disconnected=False elapsed=85.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #180 disconnected=False elapsed=90.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.8GB peak=4.9GB cache=0.0GB step=6656 running=8 waiting=2
+INFO:vllm_mlx.engine_core:[stream_outputs] bff7d4e6-515 finished normally, 1022 tokens in 93.5s
+INFO:vllm_mlx.scheduler:[schedule] request=b3360818-068 uid=63 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=8 waiting=1
+INFO:vllm_mlx.engine_core:[stream_outputs] bff7d4e6-515 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1022 tokens in 93.54s (10.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1025 chunks, elapsed=93.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1025 chunks, 0 heartbeats, elapsed=93.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 18b07d83-5b6 finished normally, 1024 tokens in 93.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] a0b9fa81-599 finished normally, 1024 tokens in 93.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 5db904e9-23c finished normally, 1024 tokens in 93.9s
+INFO:vllm_mlx.scheduler:[schedule] request=7037f181-c20 uid=64 prompt_tokens=26 tokens_to_prefill=26 max_tokens=1024 running=6 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] 18b07d83-5b6 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 93.86s (10.9 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] a0b9fa81-599 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 93.86s (10.9 tok/s)
+INFO:vllm_mlx.engine_core:[stream_outputs] 5db904e9-23c cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 93.86s (10.9 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=93.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=93.9s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=93.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=93.9s
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=93.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 0 heartbeats, elapsed=93.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] b3360818-068 first token after 94.0s
+INFO:vllm_mlx.engine_core:[stream_outputs] 7037f181-c20 first token after 94.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #190 disconnected=False elapsed=95.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] facb1fa4-f4f finished normally, 786 tokens in 95.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] facb1fa4-f4f cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 786 tokens in 95.46s (8.2 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 789 chunks, elapsed=95.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 789 chunks, 4 heartbeats, elapsed=95.5s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #200 disconnected=False elapsed=100.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] d71bacdf-c74 finished normally, 456 tokens in 100.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] d71bacdf-c74 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 456 tokens in 100.23s (4.5 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 459 chunks, elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 459 chunks, 12 heartbeats, elapsed=100.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #210 disconnected=False elapsed=105.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=4.0GB peak=4.9GB cache=0.0GB step=6912 running=4 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #220 disconnected=False elapsed=110.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #230 disconnected=False elapsed=115.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] 7037f181-c20 finished normally, 487 tokens in 119.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] 7037f181-c20 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 487 tokens in 119.90s (4.1 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 490 chunks, elapsed=119.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 490 chunks, 18 heartbeats, elapsed=119.9s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #240 disconnected=False elapsed=120.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.9GB peak=4.9GB cache=0.0GB step=7168 running=3 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] 60466454-b40 finished normally, 821 tokens in 122.5s
+INFO:vllm_mlx.engine_core:[stream_outputs] 60466454-b40 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 821 tokens in 122.46s (6.7 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 824 chunks, elapsed=122.5s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 824 chunks, 13 heartbeats, elapsed=122.5s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #250 disconnected=False elapsed=125.2s
+INFO:vllm_mlx.engine_core:[stream_outputs] ab02acad-b1c finished normally, 1024 tokens in 127.9s
+INFO:vllm_mlx.engine_core:[stream_outputs] ab02acad-b1c cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 127.90s (8.0 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=127.9s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 12 heartbeats, elapsed=127.9s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=7424 running=1 waiting=0
+INFO:vllm_mlx.server:[disconnect_guard] poll #260 disconnected=False elapsed=130.2s
+INFO:vllm_mlx.server:[disconnect_guard] poll #270 disconnected=False elapsed=135.2s
+INFO:vllm_mlx.scheduler:[Metal memory] active=3.6GB peak=4.9GB cache=0.0GB step=7680 running=1 waiting=0
+INFO:vllm_mlx.engine_core:[stream_outputs] b3360818-068 finished normally, 1024 tokens in 138.7s
+INFO:vllm_mlx.engine_core:[stream_outputs] b3360818-068 cleanup done
+INFO:vllm_mlx.server:Chat completion (stream): 1024 tokens in 138.73s (7.4 tok/s)
+INFO:vllm_mlx.server:[disconnect_guard] generator exhausted normally, 1027 chunks, elapsed=138.7s
+INFO:vllm_mlx.server:[disconnect_guard] CLEANUP done, 1027 chunks, 18 heartbeats, elapsed=138.7s
+INFO:     127.0.0.1:56584 - "GET /metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56584 - "GET /v1/status HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:vllm_mlx.server:[_get_cache_dir] _model_path='./models/qwen35-optiq' type=<class 'str'>
+INFO:vllm_mlx.server:[_get_cache_dir] cache_dir='/Users/user/.cache/vllm-mlx/prefix_cache/.--models--qwen35-optiq'
+INFO:vllm_mlx.server:[lifespan] Saving prefix cache to /Users/user/.cache/vllm-mlx/prefix_cache/.--models--qwen35-optiq
+INFO:vllm_mlx.scheduler:[cache_persist] no memory-aware cache to save
+INFO:vllm_mlx.server:[lifespan] No cache to save
+INFO:vllm_mlx.engine_core:Engine stopped
+INFO:vllm_mlx.scheduler:Deep reset completed - all caches cleared
+INFO:vllm_mlx.engine.batched:BatchedEngine stopped
+INFO:vllm_mlx.server:Engine stopped
+INFO:     Application shutdown complete.
+INFO:     Finished server process [61356]
