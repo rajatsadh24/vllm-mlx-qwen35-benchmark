@@ -93,5 +93,5 @@ python3 scripts/consolidate.py data/raw data/final
 
 ## Caveats (don't over-claim)
 - Concurrency above the engine width (`--max-num-seqs`) measures queueing, not scaling.
-- 4-bit KV **quality** is unmeasured here — verify before shipping.
+- 4-bit KV **quality**: validated — **10/10 byte-identical greedy outputs vs fp16** across a 10-prompt set (incl. long-context code review + log analysis). See `data/final/quality_ab.csv` / `assets/quality_ab.md`.
 - Single machine, 3 reps, thinking off. Energy windows include warmup (slight under-estimate).

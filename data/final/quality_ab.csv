@@ -1,0 +1,11 @@
+idx,prompt,identical,prefix_chars,prefix_frac,similarity,tok_fp16,tok_quant
+0,What are the three laws of thermodynamics? Explain each one briefly.,True,2299,1.0,1.0,493,493
+1,Write a Python function that checks if a string is a palindrome. Inclu,True,799,1.0,1.0,196,196
+2,"Explain the difference between a process and a thread, with one exampl",True,3431,1.0,1.0,768,768
+3,A farmer has 17 sheep. All but 9 run away. How many are left? Explain ,True,981,1.0,1.0,312,312
+4,Summarize the main causes of World War I in five bullet points.,True,1354,1.0,1.0,277,277
+5,Implement binary search in Python and explain its time complexity.,True,2886,1.0,1.0,768,768
+6,"Explain how HTTPS establishes a secure connection, step by step.",True,3533,1.0,1.0,768,768
+7,"Write a professional email declining a meeting invite, then explain yo",True,2745,1.0,1.0,598,598
+8,"Review this Python service for bugs, security, and performance:  impor",True,3353,1.0,1.0,768,768
+9,You are an SRE. Analyze these production logs and write a short post-m,True,1397,1.0,1.0,356,356

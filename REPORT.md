@@ -175,7 +175,7 @@ Full per-point power statistics (mean/median/p90/idle%): `data/final/power_stats
 **Honest limitations:**
 - `--max-num-seqs` caps real concurrency; high-concurrency prefill/TTFT rows reflect **admission queueing**, not model latency.
 - `gen_tps` is not apples-to-apples across arms above conc 4 (4 active+queue vs 8 active).
-- **4-bit KV quality is unmeasured** — we benchmarked speed/memory/power, not output accuracy. Verify with a quality A/B before shipping quant.
+- **4-bit KV quality — validated (greedy):** a fixed 10-prompt A/B (greedy decode, thinking off, incl. long-context code review + log analysis) produced **10/10 byte-identical outputs** vs fp16 KV (mean similarity 1.000; same token counts/finish reasons). For this model the 4-bit affine KV quant is effectively lossless for deterministic decoding — so the capacity win is free. Scope: one model, greedy only; `data/final/quality_ab.csv`, `assets/quality_ab.md`, `scripts/quality_ab.py`.
 - Single machine, 3 reps, thinking disabled, short decode prompt. Power windows include the warmup round (slight efficiency under-estimate).
 - TTFT in saturated regimes conflates queue-wait with first-token compute; a future run should separate them.
 
@@ -187,7 +187,7 @@ Full per-point power statistics (mean/median/p90/idle%): `data/final/power_stats
 
 1. **Ship the 4-bit KV + 8-wide config** as the serving default on 16 GB; operate near conc 8.
 2. **Stretch test `--max-num-seqs 12`** with 4-bit KV — conc 16 finished with headroom (16.5 W), so the true ceiling is likely > 8.
-3. **Quality A/B (fp16 vs 4-bit KV)** on real prompts to confirm the efficiency win costs no meaningful accuracy.
+3. ~~Quality A/B (fp16 vs 4-bit KV)~~ **Done** — 10/10 byte-identical greedy outputs (§7). Optional follow-up: repeat at temperature > 0 with an LLM-judge for sampled-decoding parity.
 4. **Reasoning in production:** if thinking is wanted, set `--reasoning-parser` and/or `--default-thinking-token-budget` rather than leaving it unbounded (avoids the overthinking-loop truncations of §3.1).
 5. **Upstream the cache-limit fix** as a CLI flag scaled to `--gpu-memory-utilization`; the 32 GB hardcode is a latent OOM on any ≤32 GB Mac.
 6. **More RAM removes both ceilings** (the OOM and the `max-num-seqs` cap) — a 32/64 GB Mac would let you measure true concurrency scaling past 16-way.
