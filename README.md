@@ -5,6 +5,11 @@ served by **vLLM's MLX backend** on a **16 GB Apple M5** (10-core GPU, Metal 4):
 decode characterization, a 4-bit-KV-cache optimization, and energy (tokens/joule) measurement.
 (The bench tool logged the chip as "Unknown" — it predates the M5.)
 
+**Why concurrent serving?** Local **agentic workflows** fan out into many simultaneous LLM
+requests (parallel tool calls, sub-agents, multi-step chains) — so single-stream tokens/sec
+doesn't tell you whether a laptop can actually run agents. This benchmarks the concurrent case
+that agentic flows really hit.
+
 👉 **Read [`REPORT.md`](REPORT.md) for the full analysis.** This README is the map.
 
 ## Key result (TL;DR)

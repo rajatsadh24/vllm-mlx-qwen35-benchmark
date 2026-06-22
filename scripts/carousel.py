@@ -63,15 +63,15 @@ def style_ax(ax, ylab, xlab="Concurrency", ylog=False):
 # ---------- Slide 1: cover ----------
 def slide_cover(pdf):
     fig = new_slide(); fig.patch.set_facecolor(NAVY)
-    fig.text(0.08, 0.88, "CONCURRENT SERVING BENCHMARK", color="#7fb3d5",
-             fontsize=15, fontweight="bold", va="top")
-    fig.text(0.08, 0.80, "Serving an LLM to 8 users\nat once — on a 16 GB\nApple M5 laptop",
-             color="white", fontsize=37, fontweight="bold", va="top", linespacing=1.15)
-    fig.text(0.08, 0.485, "vLLM (MLX backend)  ·  4-bit KV cache  ·  energy measured with powermetrics",
+    fig.text(0.08, 0.88, "LOCAL AGENTIC WORKLOADS  ·  BENCHMARK", color="#7fb3d5",
+             fontsize=14, fontweight="bold", va="top")
+    fig.text(0.08, 0.80, "AI agents fan out into\nmany parallel calls —\ncan a 16 GB M5 serve them?",
+             color="white", fontsize=33, fontweight="bold", va="top", linespacing=1.15)
+    fig.text(0.08, 0.50, "vLLM (MLX backend)  ·  continuous batching  ·  4-bit KV cache",
              color="#cfe0f0", fontsize=15, va="top")
     ax = fig.add_axes([0, 0, 1, 1]); ax.axis("off"); ax.set_xlim(0, 1); ax.set_ylim(0, 1)
-    tiles = [("4 → 8", "concurrent users"), ("+28%", "throughput @ 8 users"),
-             ("16.5s → 0.58s", "first-token latency"), ("~18 W", "at full load")]
+    tiles = [("4 → 8", "parallel requests"), ("+28%", "aggregate throughput"),
+             ("16.5s → 0.58s", "first-token latency"), ("lossless", "10/10 identical outputs")]
     pos = [(0.08, 0.30), (0.52, 0.30), (0.08, 0.12), (0.52, 0.12)]
     for (val, lab), (x, y) in zip(tiles, pos):
         ax.add_patch(FancyBboxPatch((x, y), 0.40, 0.155, boxstyle="round,pad=0.012",
@@ -85,7 +85,7 @@ def slide_cover(pdf):
 # ---------- Slide 2: throughput ----------
 def slide_throughput(pdf):
     fig = new_slide(); header(fig, 2)
-    title(fig, "4-bit KV cache doubled\nconcurrent capacity")
+    title(fig, "4-bit KV cache doubled\nparallel capacity")
     ax = chart_axes(fig)
     ax.plot(X, q_agg, "-o", color=QUANT, lw=3, ms=9, label="4-bit KV · 8-wide")
     ax.plot(X, b_agg, "-o", color=BASE, lw=3, ms=9, label="fp16 KV · 4-wide")
@@ -95,13 +95,13 @@ def slide_throughput(pdf):
     ax.set_xticks(X); ax.set_xticklabels(CX); style_ax(ax, "Aggregate throughput (tok/s)")
     ax.legend(frameon=False, fontsize=12, loc="lower right")
     takeaway(fig, "Switching the KV cache to 4-bit freed enough memory to run 8 parallel\n"
-                  "streams instead of 4 — +28% aggregate at 8 users, with no single-stream penalty.")
+                  "requests instead of 4 — +28% aggregate, with no single-request penalty.")
     footer(fig); pdf.savefig(fig); plt.close(fig)
 
 # ---------- Slide 3: latency cliff ----------
 def slide_latency(pdf):
     fig = new_slide(); header(fig, 3)
-    title(fig, "A wider engine kills the queue")
+    title(fig, "A wider engine stops\nyour agent stalling")
     ax = chart_axes(fig); w = 0.38
     ax.bar([x - w/2 for x in X], b_ttft, w, color=BASE, label="fp16 KV · 4-wide")
     ax.bar([x + w/2 for x in X], q_ttft, w, color=QUANT, label="4-bit KV · 8-wide")
@@ -110,8 +110,8 @@ def slide_latency(pdf):
                 color=ACC, fontweight="bold", fontsize=14,
                 arrowprops=dict(arrowstyle="->", color=ACC, lw=2))
     ax.legend(frameon=False, fontsize=12, loc="upper left")
-    takeaway(fig, "With a 4-wide engine, 4 of every 8 users wait in a queue. An 8-wide engine\n"
-                  "serves them all at once — first-token latency drops from 16.5 s to 0.58 s.")
+    takeaway(fig, "With a 4-wide engine, 4 of every 8 agent calls wait in a queue. An 8-wide\n"
+                  "engine serves them all at once — first-token latency drops 16.5 s → 0.58 s.")
     footer(fig); pdf.savefig(fig); plt.close(fig)
 
 # ---------- Slide 4: efficiency ----------

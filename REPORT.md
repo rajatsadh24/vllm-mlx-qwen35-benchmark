@@ -10,7 +10,9 @@
 
 ## 1. Executive Summary
 
-We benchmarked a 4-bit 4B reasoning model under `vllm-mlx` on a memory-constrained 16 GB Mac, separating the two cost centers of LLM inference (**prefill** and **decode**), and compared a baseline against a **4-bit KV-cache** optimization while measuring **energy (tokens/joule)**.
+**Motivation:** local *agentic* workflows fan out into many concurrent LLM requests (parallel tool calls, sub-agents, multi-step chains), so single-stream tokens/sec is the wrong metric — what matters is whether the laptop holds up under *concurrent* load. This benchmarks that.
+
+We benchmarked a 4-bit 4B reasoning model under `vllm-mlx` on a memory-constrained 16 GB Apple M5, separating the two cost centers of LLM inference (**prefill** and **decode**), and compared a baseline against a **4-bit KV-cache** optimization while measuring **energy (tokens/joule)**.
 
 | Question | Answer |
 |----------|--------|
