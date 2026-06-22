@@ -1,8 +1,9 @@
-# Benchmark Report — Qwen3.5-4B-OptiQ-4bit on vllm-mlx (16 GB Mac)
+# Benchmark Report — Qwen3.5-4B-OptiQ-4bit on vLLM + MLX (16 GB Apple M5)
 
-A self-contained benchmark of the 4-bit reasoning model `qwen35-optiq` served by
-`vllm-mlx` on a 16 GB Apple Silicon Mac: prefill vs decode characterization, a
-4-bit-KV-cache optimization, and energy (tokens/joule) measurement.
+A self-contained concurrent-serving benchmark of the 4-bit reasoning model `qwen35-optiq`
+served by **vLLM's MLX backend** on a **16 GB Apple M5** (10-core GPU, Metal 4): prefill vs
+decode characterization, a 4-bit-KV-cache optimization, and energy (tokens/joule) measurement.
+(The bench tool logged the chip as "Unknown" — it predates the M5.)
 
 👉 **Read [`REPORT.md`](REPORT.md) for the full analysis.** This README is the map.
 
@@ -34,6 +35,8 @@ Regenerate with `python3 scripts/plot.py data/final assets` (matplotlib, colorbl
 **Interactive dashboard** (hover for exact values, no static-label crowding):
 **[view live ↗](https://rajatsadh24.github.io/vllm-mlx-qwen35-benchmark/assets/dashboard.html)** — or open `assets/dashboard.html` locally. Regenerate with `python3 scripts/plot_interactive.py` (requires `plotly`).
 
+**LinkedIn carousel:** `assets/linkedin_carousel.pdf` — a 5-slide square deck for sharing. Regenerate with `python3 scripts/carousel.py`.
+
 ## Layout
 
 ```
@@ -48,6 +51,7 @@ benchmark_report/
 │   ├── consolidate.py            ← authoritative final-CSV generator
 │   ├── plot.py                   ← static figure generator (matplotlib → assets/*.png/svg)
 │   ├── plot_interactive.py       ← interactive Plotly dashboard (→ assets/dashboard.html)
+│   ├── carousel.py               ← 5-slide LinkedIn carousel PDF (→ assets/linkedin_carousel.pdf)
 │   └── PATCH_cache_limit.md      ← REQUIRED local patch (32 GB → 2 GB MLX cache)
 └── data/
     ├── final/                    ← clean summary CSVs (cite these)

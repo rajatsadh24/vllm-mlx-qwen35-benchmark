@@ -1,9 +1,9 @@
-# vllm-mlx Serving Benchmark — Qwen3.5-4B-OptiQ-4bit on a 16 GB Apple Silicon Mac
+# vLLM-on-MLX Serving Benchmark — Qwen3.5-4B-OptiQ-4bit on a 16 GB Apple M5
 
 **Date:** 2026-06-18
 **Model:** `mlx-community/Qwen3.5-4B-OptiQ-4bit` (served as `qwen35-optiq`) — a 4-bit, reasoning ("thinking") LLM
 **Server:** `vllm-mlx serve` (continuous batching + paged KV cache), local patch applied (see §3.2 / Appendix B)
-**Hardware:** Apple Silicon, **16 GB** unified memory, macOS 26.5.1 (arm64)
+**Hardware:** Apple **M5** (10-core GPU, Metal 4), **16 GB** unified memory, macOS 26.5.1 (arm64) — bench fingerprint logged the chip as `Unknown` (tooling predates M5)
 **Harness:** `vllm-mlx bench-serve`, fresh server per sweep point, `powermetrics` sidecar for energy
 
 ---
@@ -30,7 +30,7 @@ We benchmarked a 4-bit 4B reasoning model under `vllm-mlx` on a memory-constrain
 
 | Item | Value |
 |------|-------|
-| Chip / memory | Apple Silicon, 16 GB unified |
+| Chip / memory | Apple M5 (10-core GPU, Metal 4), 16 GB unified |
 | OS | macOS 26.5.1 (Darwin arm64) |
 | Model | `mlx-community/Qwen3.5-4B-OptiQ-4bit`, 4-bit weights, reasoning model |
 | Model quirks | Detected as a VLM (`vision_config` + `text_config`) → loaded `strict=False`; ships MTP (speculative-decode) weights that were stripped/disabled — no effect on correctness |

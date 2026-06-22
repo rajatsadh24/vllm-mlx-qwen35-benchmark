@@ -201,12 +201,12 @@ HTML = f"""<!doctype html><html lang="en"><head>
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <style>{CSS}</style></head><body>
 <header class="hero"><div class="wrap">
-  <h1>Qwen3.5-4B (4-bit) on a 16 GB Apple Silicon Mac</h1>
-  <p>Serving benchmark under <b>vllm-mlx</b> — prefill vs decode, a 4-bit KV-cache optimization
-  that doubles concurrent users (4 → 8), and energy in tokens/joule.</p>
+  <h1>Concurrent LLM serving on a 16&nbsp;GB Apple&nbsp;M5</h1>
+  <p>A serving benchmark of <b>vLLM's MLX backend</b> — continuous batching, a 4-bit KV-cache
+  optimization that doubles concurrent users (4 → 8), and energy in tokens/joule.</p>
   <div class="badges">
     <span class="badge">model: Qwen3.5-4B-OptiQ-4bit</span>
-    <span class="badge">16 GB · macOS · MLX</span>
+    <span class="badge">Apple M5 · 16 GB · MLX</span>
     <span class="badge"><a href="{REPO}">repo ↗</a></span>
     <span class="badge"><a href="{REPO}/blob/main/REPORT.md">full report ↗</a></span>
   </div>

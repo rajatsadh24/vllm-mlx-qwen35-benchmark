@@ -202,10 +202,10 @@ def infographic():
     gs = fig.add_gridspec(3, 2, height_ratios=[0.16, 1, 0.14], hspace=0.42, wspace=0.22)
     # headline
     axh = fig.add_subplot(gs[0, :]); axh.axis("off")
-    axh.text(0.5, 0.7, "Qwen3.5-4B (4-bit) on a 16 GB Apple Silicon Mac",
+    axh.text(0.5, 0.7, "Concurrent LLM serving on a 16 GB Apple M5  ·  vLLM on MLX",
              ha="center", fontsize=19, fontweight="bold")
-    axh.text(0.5, 0.12, "4-bit KV cache → 4→8 concurrent users · +28% throughput · flat tokens/joule",
-             ha="center", fontsize=12.5, color=QUANT)
+    axh.text(0.5, 0.12, "4-bit KV cache → 4→8 concurrent users · +28% throughput · 16.5s→0.58s TTFT · flat tok/J",
+             ha="center", fontsize=12, color=QUANT)
     # panel A: aggregate
     axA = fig.add_subplot(gs[1, 0])
     axA.plot(X, q_agg, "-o", color=QUANT, lw=2.5, ms=7, label="4-bit KV (8-wide)")
